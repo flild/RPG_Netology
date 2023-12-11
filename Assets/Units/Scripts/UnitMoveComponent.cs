@@ -1,3 +1,4 @@
+using RPG.Units.Player;
 using UnityEngine;
 
 namespace RPG.Units
@@ -8,11 +9,16 @@ namespace RPG.Units
         private Rigidbody _rb;
         private UnitStats _stats;
         private View.UnitViewComponent _view;
+        private PlayerState _states;
+        [SerializeField]
         private bool _inAnimation = false;
         //jump
         private float _Yspeed;
         private bool _isGrounded = true;
         private const int _jumpRatio = 100;
+        private const int _moveSpeedRatio = 100;
+
+        private Vector3 calcDirection;
 
         #region Unity Callbacks
         private void Awake()
@@ -20,6 +26,7 @@ namespace RPG.Units
             _rb = GetComponent<Rigidbody>();
             _view = GetComponent<View.UnitViewComponent>();
             _stats = GetComponent<UnitStats>();
+            _states = GetComponent<PlayerState>();
         }
         private void FixedUpdate()
         {
@@ -34,14 +41,36 @@ namespace RPG.Units
                 _isGrounded = true;
                 _view.LandingAnim();
             }
-        } 
+        }
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            if(calcDirection !=null)
+            {
+                Gizmos.DrawLine(transform.position, transform.position + calcDirection*3);
+            }
+            
+        }
         #endregion
         public void Move(Vector3 direction)
         {
             if (_inAnimation)
                 return;
-            transform.position += direction * _stats.moveSpeed * Time.deltaTime;
-            _view.MoveAnim(direction);
+            if (_isGrounded)
+            {
+                calcDirection = transform.forward * direction.z + transform.right * direction.x;
+                if(_states.isSprinting)
+                {
+                    _rb.velocity = calcDirection * _stats.SprintSpeed * Time.deltaTime * _moveSpeedRatio;
+                }
+                else
+                { 
+                    _rb.velocity = calcDirection * _stats.moveSpeed * Time.deltaTime * _moveSpeedRatio;
+                }
+                    
+                _view.MoveAnim(direction);
+            }
+                
         }
         #region Jump
         public void Jump()
@@ -68,6 +97,10 @@ namespace RPG.Units
         {
             _inAnimation = false;
            
+        }
+        public void UnitInAnimation()
+        {
+            _inAnimation = true;
         }
         public void SwordAttack()
         {

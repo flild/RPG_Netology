@@ -5,17 +5,20 @@ namespace RPG.Units.View
 {
     public class UnitViewComponent : MonoBehaviour
     {
-        [SerializeField] private Animator _MoveAnimator;
+        [SerializeField] protected Animator _MoveAnimator;
         private int _IDForwardMove;
         private int _IDSideMove;
-        private int _IDIsMoving;
+        protected int _IDIsMoving;
         private int _IDIsJumping;
         private int _IDIsFalling;
         private int _IDIsGrounded;
         private int _IDIsSwordAttack;
         private int _IDIsShieldAttack;
+        private int _IDIsDie;
+        private int _IDIsTakeDamage;
+        private int _IDIsTakeShieldStun;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _IDForwardMove = Animator.StringToHash("ForwardMove");
             _IDSideMove = Animator.StringToHash("SideMove");
@@ -25,6 +28,10 @@ namespace RPG.Units.View
             _IDIsGrounded = Animator.StringToHash("IsGrounded");
             _IDIsSwordAttack = Animator.StringToHash("SwordAttack");
             _IDIsShieldAttack = Animator.StringToHash("ShieldAttack");
+            _IDIsTakeDamage = Animator.StringToHash("TakeDamage");
+            _IDIsTakeShieldStun = Animator.StringToHash("TakeShieldStun");
+            _IDIsDie = Animator.StringToHash("Die");
+            
         }
 
         //todo
@@ -48,6 +55,18 @@ namespace RPG.Units.View
         public void ShieldAttackAnim()
         {
             _MoveAnimator.SetTrigger(_IDIsShieldAttack);
+        }
+        public void TakeDamageAnim()
+        {
+            _MoveAnimator.SetTrigger(_IDIsTakeDamage);
+        }
+        public void TakeShieldStun()
+        {
+            _MoveAnimator.SetTrigger(_IDIsTakeShieldStun);
+        }
+        public void DeathAnim()
+        {
+            _MoveAnimator.SetTrigger(_IDIsDie);
         }
         #region JumpAnimation
         public void JumpAnim()

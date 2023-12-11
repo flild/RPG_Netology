@@ -64,6 +64,33 @@ namespace RPG.Units.Player
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Delta"",
+                    ""type"": ""Value"",
+                    ""id"": ""c80a34eb-0634-4857-8344-83e108487d0c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""97dffbea-8bc5-4879-b877-83d259e25416"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""fcb5ea1d-d3ec-48ea-8e96-ba3a08ad6275"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -154,6 +181,127 @@ namespace RPG.Units.Player
                     ""action"": ""LHandAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f51e45f-15dc-42ac-bec1-5e42d87c90a2"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Delta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4baada5b-ca64-493b-a1a2-295e281a5103"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5cc56988-fe09-4f54-ab8a-63029343c9af"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""SwitchWeapon"",
+            ""id"": ""198b4178-6d5d-4db1-8037-e5d31666b05a"",
+            ""actions"": [
+                {
+                    ""name"": ""FirstSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd6c0106-9379-4715-9ece-45e493381342"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""7606c785-2e7a-42d3-a021-b723e20b4e10"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ThirdSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""9556a3d6-51cc-4a4a-aa19-4fc137bf7fef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""disarm"",
+                    ""type"": ""Button"",
+                    ""id"": ""fde14417-09ee-4d7d-ab61-f93480692f72"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9ba1ee3b-76e4-4166-9531-599e4ce88bbc"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3848fee9-cdfa-470d-8d80-c7946046e86a"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d844cb2-79b6-41ec-a4ce-923f51533a79"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThirdSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8fc20785-b5cb-4fda-b5da-b0d45ddf9959"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""disarm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +314,15 @@ namespace RPG.Units.Player
             m_MoveMap_Jump = m_MoveMap.FindAction("Jump", throwIfNotFound: true);
             m_MoveMap_RHandAttack = m_MoveMap.FindAction("RHandAttack", throwIfNotFound: true);
             m_MoveMap_LHandAttack = m_MoveMap.FindAction("LHandAttack", throwIfNotFound: true);
+            m_MoveMap_Delta = m_MoveMap.FindAction("Delta", throwIfNotFound: true);
+            m_MoveMap_Crouch = m_MoveMap.FindAction("Crouch", throwIfNotFound: true);
+            m_MoveMap_Sprint = m_MoveMap.FindAction("Sprint", throwIfNotFound: true);
+            // SwitchWeapon
+            m_SwitchWeapon = asset.FindActionMap("SwitchWeapon", throwIfNotFound: true);
+            m_SwitchWeapon_FirstSlot = m_SwitchWeapon.FindAction("FirstSlot", throwIfNotFound: true);
+            m_SwitchWeapon_SecondSlot = m_SwitchWeapon.FindAction("SecondSlot", throwIfNotFound: true);
+            m_SwitchWeapon_ThirdSlot = m_SwitchWeapon.FindAction("ThirdSlot", throwIfNotFound: true);
+            m_SwitchWeapon_disarm = m_SwitchWeapon.FindAction("disarm", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -231,6 +388,9 @@ namespace RPG.Units.Player
         private readonly InputAction m_MoveMap_Jump;
         private readonly InputAction m_MoveMap_RHandAttack;
         private readonly InputAction m_MoveMap_LHandAttack;
+        private readonly InputAction m_MoveMap_Delta;
+        private readonly InputAction m_MoveMap_Crouch;
+        private readonly InputAction m_MoveMap_Sprint;
         public struct MoveMapActions
         {
             private @PlayerInputControl m_Wrapper;
@@ -239,6 +399,9 @@ namespace RPG.Units.Player
             public InputAction @Jump => m_Wrapper.m_MoveMap_Jump;
             public InputAction @RHandAttack => m_Wrapper.m_MoveMap_RHandAttack;
             public InputAction @LHandAttack => m_Wrapper.m_MoveMap_LHandAttack;
+            public InputAction @Delta => m_Wrapper.m_MoveMap_Delta;
+            public InputAction @Crouch => m_Wrapper.m_MoveMap_Crouch;
+            public InputAction @Sprint => m_Wrapper.m_MoveMap_Sprint;
             public InputActionMap Get() { return m_Wrapper.m_MoveMap; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -260,6 +423,15 @@ namespace RPG.Units.Player
                 @LHandAttack.started += instance.OnLHandAttack;
                 @LHandAttack.performed += instance.OnLHandAttack;
                 @LHandAttack.canceled += instance.OnLHandAttack;
+                @Delta.started += instance.OnDelta;
+                @Delta.performed += instance.OnDelta;
+                @Delta.canceled += instance.OnDelta;
+                @Crouch.started += instance.OnCrouch;
+                @Crouch.performed += instance.OnCrouch;
+                @Crouch.canceled += instance.OnCrouch;
+                @Sprint.started += instance.OnSprint;
+                @Sprint.performed += instance.OnSprint;
+                @Sprint.canceled += instance.OnSprint;
             }
 
             private void UnregisterCallbacks(IMoveMapActions instance)
@@ -276,6 +448,15 @@ namespace RPG.Units.Player
                 @LHandAttack.started -= instance.OnLHandAttack;
                 @LHandAttack.performed -= instance.OnLHandAttack;
                 @LHandAttack.canceled -= instance.OnLHandAttack;
+                @Delta.started -= instance.OnDelta;
+                @Delta.performed -= instance.OnDelta;
+                @Delta.canceled -= instance.OnDelta;
+                @Crouch.started -= instance.OnCrouch;
+                @Crouch.performed -= instance.OnCrouch;
+                @Crouch.canceled -= instance.OnCrouch;
+                @Sprint.started -= instance.OnSprint;
+                @Sprint.performed -= instance.OnSprint;
+                @Sprint.canceled -= instance.OnSprint;
             }
 
             public void RemoveCallbacks(IMoveMapActions instance)
@@ -293,12 +474,92 @@ namespace RPG.Units.Player
             }
         }
         public MoveMapActions @MoveMap => new MoveMapActions(this);
+
+        // SwitchWeapon
+        private readonly InputActionMap m_SwitchWeapon;
+        private List<ISwitchWeaponActions> m_SwitchWeaponActionsCallbackInterfaces = new List<ISwitchWeaponActions>();
+        private readonly InputAction m_SwitchWeapon_FirstSlot;
+        private readonly InputAction m_SwitchWeapon_SecondSlot;
+        private readonly InputAction m_SwitchWeapon_ThirdSlot;
+        private readonly InputAction m_SwitchWeapon_disarm;
+        public struct SwitchWeaponActions
+        {
+            private @PlayerInputControl m_Wrapper;
+            public SwitchWeaponActions(@PlayerInputControl wrapper) { m_Wrapper = wrapper; }
+            public InputAction @FirstSlot => m_Wrapper.m_SwitchWeapon_FirstSlot;
+            public InputAction @SecondSlot => m_Wrapper.m_SwitchWeapon_SecondSlot;
+            public InputAction @ThirdSlot => m_Wrapper.m_SwitchWeapon_ThirdSlot;
+            public InputAction @disarm => m_Wrapper.m_SwitchWeapon_disarm;
+            public InputActionMap Get() { return m_Wrapper.m_SwitchWeapon; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(SwitchWeaponActions set) { return set.Get(); }
+            public void AddCallbacks(ISwitchWeaponActions instance)
+            {
+                if (instance == null || m_Wrapper.m_SwitchWeaponActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_SwitchWeaponActionsCallbackInterfaces.Add(instance);
+                @FirstSlot.started += instance.OnFirstSlot;
+                @FirstSlot.performed += instance.OnFirstSlot;
+                @FirstSlot.canceled += instance.OnFirstSlot;
+                @SecondSlot.started += instance.OnSecondSlot;
+                @SecondSlot.performed += instance.OnSecondSlot;
+                @SecondSlot.canceled += instance.OnSecondSlot;
+                @ThirdSlot.started += instance.OnThirdSlot;
+                @ThirdSlot.performed += instance.OnThirdSlot;
+                @ThirdSlot.canceled += instance.OnThirdSlot;
+                @disarm.started += instance.OnDisarm;
+                @disarm.performed += instance.OnDisarm;
+                @disarm.canceled += instance.OnDisarm;
+            }
+
+            private void UnregisterCallbacks(ISwitchWeaponActions instance)
+            {
+                @FirstSlot.started -= instance.OnFirstSlot;
+                @FirstSlot.performed -= instance.OnFirstSlot;
+                @FirstSlot.canceled -= instance.OnFirstSlot;
+                @SecondSlot.started -= instance.OnSecondSlot;
+                @SecondSlot.performed -= instance.OnSecondSlot;
+                @SecondSlot.canceled -= instance.OnSecondSlot;
+                @ThirdSlot.started -= instance.OnThirdSlot;
+                @ThirdSlot.performed -= instance.OnThirdSlot;
+                @ThirdSlot.canceled -= instance.OnThirdSlot;
+                @disarm.started -= instance.OnDisarm;
+                @disarm.performed -= instance.OnDisarm;
+                @disarm.canceled -= instance.OnDisarm;
+            }
+
+            public void RemoveCallbacks(ISwitchWeaponActions instance)
+            {
+                if (m_Wrapper.m_SwitchWeaponActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(ISwitchWeaponActions instance)
+            {
+                foreach (var item in m_Wrapper.m_SwitchWeaponActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_SwitchWeaponActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public SwitchWeaponActions @SwitchWeapon => new SwitchWeaponActions(this);
         public interface IMoveMapActions
         {
             void OnMove(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
             void OnRHandAttack(InputAction.CallbackContext context);
             void OnLHandAttack(InputAction.CallbackContext context);
+            void OnDelta(InputAction.CallbackContext context);
+            void OnCrouch(InputAction.CallbackContext context);
+            void OnSprint(InputAction.CallbackContext context);
+        }
+        public interface ISwitchWeaponActions
+        {
+            void OnFirstSlot(InputAction.CallbackContext context);
+            void OnSecondSlot(InputAction.CallbackContext context);
+            void OnThirdSlot(InputAction.CallbackContext context);
+            void OnDisarm(InputAction.CallbackContext context);
         }
     }
 }
